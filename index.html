@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>App</title>
+    <link rel="stylesheet" href="/src/App.css">
+</head>
+<body>
+    <main>
+        <section>
+            <div class="intro project">
+                <h2>Our Works</h2>
+                <p>Expolre our work and discover how we turn ideas into reality, one project at a time.</p>
+            </div>
+            <div class="yamu project" onmouseenter="hoverEffect(true, 'yamu')" onmouseleave="hoverEffect(false, 'yamu')">
+                <h2>Yamu Camera</h2>
+            </div>
+            <div class="inverst project" onmouseenter="hoverEffect(true, 'invert')" onmouseleave="hoverEffect(false, 'invert')">
+                <h2>Invest with Experience</h2>
+            </div>
+            <div class="new project" onmouseenter="hoverEffect(true, 'project')" onmouseleave="hoverEffect(false, 'project')">
+                <h2>Project 3</h2>
+            </div>
+        </section>
+    </main>
+    <script>
+        let hover = false;
+        let yamuHover = false;
+        let invertHover = false;
+        let projectHover = false;
+
+        function hoverEffect(isHover, projectType) {
+            hover = isHover;
+            switch(projectType) {
+                case 'yamu':
+                    yamuHover = isHover;
+                    break;
+                case 'invert':
+                    invertHover = isHover;
+                    break;
+                case 'project':
+                    projectHover = isHover;
+                    break;
+            }
+            updateStyles();
+        }
+
+        function updateStyles() {
+            const intro = document.querySelector('.intro');
+            const yamu = document.querySelector('.yamu');
+            const invert = document.querySelector('.inverst');
+            const newProject = document.querySelector('.new');
+
+            intro.style.backgroundColor = hover ? 'black' : '#99d3b4';
+            intro.style.color = hover ? 'white' : 'black';
+
+            yamu.style.width = yamuHover ? '160rem' : hover ? '20rem' : '70rem';
+            yamu.style.backgroundColor = yamuHover ? '#99d3b4' : 'black';
+            yamu.style.color = yamuHover ? 'black' : 'white';
+            yamu.querySelector('h2').style.transform = yamuHover ? '' : hover ? 'rotate(90deg) translateX(18rem) translateY(17rem)' : '';
+            yamu.querySelector('h2').style.width = yamuHover ? '' : hover ? '30rem ' : '';
+            yamu.querySelector('h2').style.height = yamuHover ? '' : hover ? '10rem ' : '';
+
+            invert.style.width = invertHover ? '160rem' : hover ? '20rem' : '70rem';
+            invert.style.backgroundColor = invertHover ? '#99d3b4' : 'black';
+            invert.style.color = invertHover ? 'black' : 'white';
+            invert.querySelector('h2').style.transform = invertHover ? '' : hover ? 'rotate(90deg) translateX(18rem) translateY(17rem)' : '';
+            invert.querySelector('h2').style.width = invertHover ? '' : hover ? '30rem ' : '';
+            invert.querySelector('h2').style.height = invertHover ? '' : hover ? '10rem ' : '';
+
+            newProject.style.width = projectHover ? '160rem' : hover ? '20rem' : '70rem';
+            newProject.style.backgroundColor = projectHover ? '#99d3b4' : 'black';
+            newProject.style.color = projectHover ? 'black' : 'white';
+            newProject.querySelector('h2').style.transform = projectHover ? '' : hover ? 'rotate(90deg) translateX(18rem) translateY(17rem)' : '';
+            newProject.querySelector('h2').style.width = projectHover ? '' : hover ? '30rem ' : '';
+            newProject.querySelector('h2').style.height = projectHover ? '' : hover ? '10rem ' : '';
+        }
+    </script>
+</body>
+</html>
