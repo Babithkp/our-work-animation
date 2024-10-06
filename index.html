@@ -1,27 +1,81 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>App</title>
     <link rel="stylesheet" href="App.css">
 </head>
+<style>
+    .yamu {
+        position: relative;
+    }
+
+    .yamu-bg {
+        opacity: 0.5;
+        background: url("yamu.png") no-repeat 18% 0px / cover;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        z-index: 1;
+    }
+
+    .yamu p {
+        color: black;
+        bottom: 10%;
+        left: 0;
+        padding: 0 20px 0 20px;
+        z-index: 0;
+    }
+
+    .yamu h2 {
+        top: 0;
+        position: absolute;
+        left: 10px;
+        color: #d0a809;
+        z-index: 1;
+    }
+
+    button {
+        background-color: black;
+        padding: 10px 20px 10px 20px;
+        color: white;
+        border: none;
+        border-radius: 50px;
+        margin-left: 20px;
+    }
+
+    button:hover {
+        background-color: #99d3b4;
+        border: 1px solid black;
+        color: black;
+    }
+</style>
+
 <body>
-        <section>
-            <div class="intro project">
-                <h2>Our Works</h2>
-                <p>Expolre our work and discover how we turn ideas into reality, one project at a time.</p>
-            </div>
-            <div class="yamu project" onmouseenter="hoverEffect(true, 'yamu')" onmouseleave="hoverEffect(false, 'yamu')">
-                <h2>Yamu Camera</h2>
-            </div>
-            <div class="inverst project" onmouseenter="hoverEffect(true, 'invert')" onmouseleave="hoverEffect(false, 'invert')">
-                <h2>Invest with Experience</h2>
-            </div>
-            <div class="new project" onmouseenter="hoverEffect(true, 'project')" onmouseleave="hoverEffect(false, 'project')">
-                <h2>Project 3</h2>
-            </div>
-        </section>
+    <section>
+        <div class="intro project">
+            <h2>Our Works</h2>
+            <p>Expolre our work and discover how we turn ideas into reality, one project at a time.</p>
+        </div>
+        <div class="yamu project" onmouseenter="hoverEffect(true, 'yamu')" onmouseleave="hoverEffect(false, 'yamu')">
+            <div class="yamu-bg"></div>
+            <h2>Yamu Camera</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis animi perferendis vero quia minima
+                porro inventore eaque veritatis? Consectetur molestiae vel sint dolorem, perferendis quibusdam alias
+                accusantium asperiores! Esse, dolor.</p>
+            <button>Learn More</button>
+        </div>
+        <div class="inverst project" onmouseenter="hoverEffect(true, 'invert')"
+            onmouseleave="hoverEffect(false, 'invert')">
+            <h2>Invest with Experience</h2>
+        </div>
+        <div class="new project" onmouseenter="hoverEffect(true, 'project')"
+            onmouseleave="hoverEffect(false, 'project')">
+            <h2>Project 3</h2>
+        </div>
+    </section>
     <script>
         let hover = false;
         let yamuHover = false;
@@ -30,7 +84,7 @@
 
         function hoverEffect(isHover, projectType) {
             hover = isHover;
-            switch(projectType) {
+            switch (projectType) {
                 case 'yamu':
                     yamuHover = isHover;
                     break;
@@ -53,21 +107,27 @@
             intro.style.backgroundColor = hover ? 'black' : '#99d3b4';
             intro.style.color = hover ? 'white' : 'black';
 
-            yamu.style.width = yamuHover ? '160rem' : hover ? '20rem' : '70rem';
+            yamu.style.width = yamuHover ? '160rem' : hover ? '25rem' : '70rem';
+            yamu.querySelector('div').style.height = yamuHover ? hover ? '20rem ' : '' : '';
+            yamu.querySelector('div').style.width = yamuHover ? hover ? '50rem ' : '' : '';
+            yamu.querySelector('div').style.width = yamuHover ? hover ? '50rem ' : '' : '';
+            yamu.querySelector('h2').style.display = yamuHover ? hover ? 'none' : '' : '';
+            yamu.querySelector('div').style.opacity = yamuHover ? hover ? 1 : '' : '';
+
             yamu.style.backgroundColor = yamuHover ? '#99d3b4' : 'black';
-            yamu.style.color = yamuHover ? 'black' : 'white';
+            yamu.querySelector('h2').style.color = yamuHover ? '#d0a809' : '#d0a809';
             yamu.querySelector('h2').style.transform = yamuHover ? '' : hover ? 'rotate(90deg) translateX(18rem) translateY(17rem)' : '';
             yamu.querySelector('h2').style.width = yamuHover ? '' : hover ? '30rem ' : '';
             yamu.querySelector('h2').style.height = yamuHover ? '' : hover ? '10rem ' : '';
 
-            invert.style.width = invertHover ? '160rem' : hover ? '20rem' : '70rem';
+            invert.style.width = invertHover ? '160rem' : hover ? '25rem' : '70rem';
             invert.style.backgroundColor = invertHover ? '#99d3b4' : 'black';
             invert.style.color = invertHover ? 'black' : 'white';
             invert.querySelector('h2').style.transform = invertHover ? '' : hover ? 'rotate(90deg) translateX(18rem) translateY(17rem)' : '';
             invert.querySelector('h2').style.width = invertHover ? '' : hover ? '30rem ' : '';
             invert.querySelector('h2').style.height = invertHover ? '' : hover ? '10rem ' : '';
 
-            newProject.style.width = projectHover ? '160rem' : hover ? '20rem' : '70rem';
+            newProject.style.width = projectHover ? '160rem' : hover ? '25rem' : '70rem';
             newProject.style.backgroundColor = projectHover ? '#99d3b4' : 'black';
             newProject.style.color = projectHover ? 'black' : 'white';
             newProject.querySelector('h2').style.transform = projectHover ? '' : hover ? 'rotate(90deg) translateX(18rem) translateY(17rem)' : '';
@@ -76,4 +136,5 @@
         }
     </script>
 </body>
+
 </html>
